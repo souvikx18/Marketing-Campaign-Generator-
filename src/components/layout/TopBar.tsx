@@ -40,7 +40,7 @@ export default function TopBar({ user, sidebarOpen, onToggleSidebar, onMobileMen
   ]
 
   return (
-    <header className="sticky top-0 z-10 h-16 bg-white border-b border-border flex items-center px-4 lg:px-6 gap-4">
+    <header className="sticky top-0 z-30 h-[var(--topbar-height)] glass flex items-center px-4 lg:px-6 gap-4">
       {/* Mobile menu toggle */}
       <button
         onClick={onMobileMenuOpen}
@@ -64,7 +64,7 @@ export default function TopBar({ user, sidebarOpen, onToggleSidebar, onMobileMen
       {/* Global search */}
       <div className="flex-1 max-w-lg hidden sm:block">
         <div
-          className="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface border border-border hover:border-primary/40 cursor-pointer transition-all group"
+          className="flex items-center gap-3 px-4 py-2 rounded-xl bg-surface/50 border border-border/80 hover:bg-white hover:border-primary-300 hover:shadow-subtle-glow cursor-pointer transition-all group"
           onClick={onOpenCommandPalette}
         >
           <Search className="w-4 h-4 text-text-muted group-hover:text-primary transition-colors" />
@@ -76,10 +76,9 @@ export default function TopBar({ user, sidebarOpen, onToggleSidebar, onMobileMen
       </div>
 
       <div className="ml-auto flex items-center gap-2">
-        {/* New Campaign CTA */}
         <Link
           href="/campaigns/new"
-          className="hidden md:flex items-center gap-2 bg-primary hover:bg-primary-700 text-white text-sm font-semibold rounded-lg px-4 h-9 transition-all shadow-button"
+          className="hidden md:flex btn btn-primary h-9 px-4 rounded-lg pointer-events-auto"
         >
           <Plus className="w-4 h-4" />
           New Campaign
@@ -101,7 +100,7 @@ export default function TopBar({ user, sidebarOpen, onToggleSidebar, onMobileMen
           </button>
 
           {notifOpen && (
-            <div className="absolute right-0 top-full mt-2 w-80 bg-white border border-border rounded-xl shadow-modal z-50 overflow-hidden animate-slide-up">
+            <div className="absolute right-0 top-full mt-3 w-80 bg-white/90 backdrop-blur-xl border border-border/50 rounded-2xl shadow-modal z-50 overflow-hidden animate-slide-up">
               <div className="flex items-center justify-between px-4 py-3 border-b border-border">
                 <span className="font-semibold text-sm text-text-primary">Notifications</span>
                 <button className="text-xs text-primary hover:underline">Mark all read</button>
@@ -147,7 +146,7 @@ export default function TopBar({ user, sidebarOpen, onToggleSidebar, onMobileMen
           </button>
 
           {userMenuOpen && (
-            <div className="absolute right-0 top-full mt-2 w-56 bg-white border border-border rounded-xl shadow-modal z-50 overflow-hidden animate-slide-up">
+            <div className="absolute right-0 top-full mt-3 w-56 bg-white/90 backdrop-blur-xl border border-border/50 rounded-2xl shadow-modal z-50 overflow-hidden animate-slide-up">
               <div className="px-4 py-3 border-b border-border">
                 <p className="text-sm font-semibold text-text-primary">{user.name}</p>
                 <p className="text-xs text-text-muted truncate">{user.email}</p>

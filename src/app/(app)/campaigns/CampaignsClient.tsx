@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import {
   Plus, Search, Filter, MoreHorizontal, Copy, Archive,
   Play, Pause, Trash2, Eye, Megaphone, Calendar,
-  ArrowRight, Clock, ChevronDown
+  ArrowRight, Clock, ChevronDown, Sparkles
 } from 'lucide-react'
 import { cn, formatCurrency, formatRelativeTime, getStatusBadgeClass } from '@/lib/utils'
 
@@ -49,7 +49,7 @@ export default function CampaignsClient({ campaigns }: { campaigns: Campaign[] }
           </h1>
           <p className="text-text-muted text-sm mt-1">{campaigns.length} total campaign{campaigns.length !== 1 ? 's' : ''}</p>
         </div>
-        <Link href="/campaigns/new" className="btn-primary self-start sm:self-auto">
+        <Link href="/campaigns/new" className="btn btn-primary self-start sm:self-auto">
           <Plus className="w-4 h-4" />
           New Campaign
         </Link>
@@ -90,16 +90,27 @@ export default function CampaignsClient({ campaigns }: { campaigns: Campaign[] }
 
       {/* Campaign Table */}
       {filtered.length === 0 ? (
-        <div className="card p-16 text-center">
-          <Megaphone className="w-12 h-12 text-text-muted/30 mx-auto mb-4" />
-          <h3 className="text-h3 text-text-primary mb-2">{search ? 'No matching campaigns' : 'No campaigns yet'}</h3>
-          <p className="text-text-muted text-sm mb-5">
-            {search ? 'Try a different search term.' : 'Create your first AI-powered campaign in minutes.'}
+        <div className="card p-16 text-center relative overflow-hidden flex flex-col items-center justify-center min-h-[400px] border-border/80 bg-white">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary-50/50 pointer-events-none" />
+          
+          {search ? (
+            <div className="w-20 h-20 rounded-3xl bg-surface-hover flex items-center justify-center border border-border mb-6 relative z-10">
+              <Search className="w-8 h-8 text-text-muted" />
+            </div>
+          ) : (
+            <div className="w-20 h-20 rounded-3xl bg-gradient-primary flex items-center justify-center shadow-glow mb-6 relative z-10 animate-float">
+              <Sparkles className="w-10 h-10 text-white" />
+            </div>
+          )}
+          
+          <h3 className="text-h2 text-text-primary mb-3 relative z-10">{search ? 'No matching campaigns' : 'No campaigns yet'}</h3>
+          <p className="text-text-muted text-base mb-8 max-w-md relative z-10">
+            {search ? "We couldn't find anything matching your search." : 'Launch your brand to the next level. Create your first AI-powered multi-channel campaign in minutes.'}
           </p>
           {!search && (
-            <Link href="/campaigns/new" className="btn-primary inline-flex">
-              <Plus className="w-4 h-4" />
-              Create with AI
+            <Link href="/campaigns/new" className="btn btn-primary btn-lg relative z-10">
+              <Sparkles className="w-5 h-5 mr-1" />
+              Generate Campaign
             </Link>
           )}
         </div>

@@ -38,11 +38,21 @@ export default function AnalyticsPage() {
         })}
       </div>
 
-      <div className="card p-8 text-center">
-        <TrendingUp className="w-12 h-12 text-primary/30 mx-auto mb-4" />
-        <h2 className="text-h3 text-text-primary mb-2">Advanced Analytics — Coming Soon</h2>
-        <p className="text-text-muted text-sm max-w-md mx-auto">
-          Connect your ad platforms (Meta, Google Ads, LinkedIn) to see real-time unified analytics, time-series charts, and AI insights.
+      <div className="card text-center relative overflow-hidden min-h-[450px] flex flex-col justify-center items-center bg-white border-border/80">
+        {/* Placeholder background representing charts */}
+        <div className="absolute inset-x-0 bottom-0 h-[300px] bg-gradient-to-t from-primary-200/20 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-white/60 backdrop-blur-md pointer-events-none z-0" />
+        
+        <div className="relative z-10 w-20 h-20 rounded-full bg-primary-50 flex items-center justify-center border-[6px] border-white shadow-glow mb-6 animate-pulse-glow">
+          <TrendingUp className="w-8 h-8 text-primary" />
+        </div>
+        
+        <h2 className="text-h1 text-text-primary mb-4 relative z-10">Advanced Analytics</h2>
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-primary text-white text-[11px] font-bold uppercase tracking-widest shadow-subtle-glow mb-6 relative z-10">
+          Coming Soon
+        </div>
+        <p className="text-text-muted text-base max-w-lg mx-auto relative z-10">
+          Connect your ad platforms (Meta, Google Ads, LinkedIn) to unlock real-time unified analytics, advanced time-series charts, and AI-driven insights.
         </p>
       </div>
     </div>

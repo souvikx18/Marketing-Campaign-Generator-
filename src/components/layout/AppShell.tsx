@@ -6,6 +6,8 @@ import Sidebar from './Sidebar'
 import TopBar from './TopBar'
 import CommandPalette from './CommandPalette'
 
+import { cn } from '@/lib/utils'
+
 interface Props {
   children: React.ReactNode
   session: Session
@@ -36,8 +38,10 @@ export default function AppShell({ children, session }: Props) {
 
       {/* Main Content */}
       <div
-        className="flex-1 flex flex-col min-h-screen transition-all duration-300"
-        style={{ marginLeft: sidebarOpen ? 260 : 72 }}
+        className={cn(
+          "flex-1 flex flex-col min-h-screen transition-all duration-300",
+          sidebarOpen ? "lg:ml-[260px]" : "lg:ml-[72px]"
+        )}
       >
         {/* Top Bar */}
         <TopBar
@@ -49,7 +53,7 @@ export default function AppShell({ children, session }: Props) {
         />
 
         {/* Page Content */}
-        <main className="flex-1 p-6 lg:p-8 animate-fade-in">
+        <main className="flex-1 p-6 lg:p-10 max-w-7xl mx-auto w-full animate-fade-in">
           {children}
         </main>
       </div>

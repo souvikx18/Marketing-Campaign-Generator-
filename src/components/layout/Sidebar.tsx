@@ -148,7 +148,7 @@ function SidebarContent({
       {/* Upgrade CTA (free users only) */}
       {isFree && !isCollapsed && (
         <div className="p-4 border-t border-border">
-          <div className="rounded-xl bg-gradient-to-br from-primary to-secondary p-4 text-white relative overflow-hidden animate-pulse-glow">
+          <div className="rounded-2xl bg-gradient-primary p-5 text-white relative overflow-hidden shadow-subtle-glow border border-white/10 hover:shadow-glow transition-all">
             <div className="absolute top-0 right-0 w-20 h-20 rounded-full bg-white/10 -mr-6 -mt-6" />
             <div className="flex items-center gap-2 mb-2">
               <Zap className="w-4 h-4" />
@@ -159,9 +159,9 @@ function SidebarContent({
             </p>
             <Link
               href="/settings/billing"
-              className="block text-center bg-white/20 hover:bg-white/30 text-white text-xs font-semibold rounded-lg py-2 transition-colors"
+              className="block flex items-center justify-center gap-1 bg-white/20 hover:bg-white/30 text-white text-xs font-semibold rounded-lg py-2.5 transition-all w-full backdrop-blur-sm"
             >
-              View Plans →
+              View Plans <ChevronRight className="w-3 h-3" />
             </Link>
           </div>
         </div>
